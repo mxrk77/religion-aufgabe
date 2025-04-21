@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mark Kern">
+    <meta name="description" content="Eine kreative Aufgabe von Mark Kern für Frau Braa zum Thema Leben, Tod und Leid">
+    <title>Religion, Leben und Tod - Mark Kern</title>
+    <style>
+        :root {
+            --primary-color: #3a506b;
+            --secondary-color: #5bc0be;
+            --accent-color: #e8c547;
+            --text-color: #333;
+            --light-color: #f5f5f5;
+            --dark-color: #0b132b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 10px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .active {
+            background-color: var(--secondary-color);
+            color: var(--dark-color) !important;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://katholische-seniorenseelsorge.de/wp-content/uploads/2020/11/sunset-3156176_1920.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 2s ease;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #d1b03f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .tab-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .tabs {
+            display: flex;
+            background-color: var(--primary-color);
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .testimonials {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        
+        .testimonial {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 500px;
+            scroll-snap-align: start;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 10px;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--secondary-color);
+        }
+        
+        .testimonial-author h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-author p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1 1 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .contact-form {
+            flex: 1 1 500px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1 1 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            header .container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stil für die Autor-Hinweise */
+        .author-note {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(91, 192, 190, 0.1);
+            border-radius: 5px;
+        }
+        
+        /* Stil für das Wasserzeichen */
+        .watermark {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(255,255,255,0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-infinity"></i>
+                <span>Lebensphilosophie | Von Mark Kern</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Startseite</a></li>
+                    <li><a href="#about">Über uns</a></li>
+                    <li><a href="#topics">Themen</a></li>
+                    <li><a href="#resources">Ressourcen</a></li>
+                    <li><a href="#quotes">Zitate</a></li>
+                    <li><a href="#author">Über mich</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>Lebensphilosophie: Leben, Tod und Leid</h1>
+            <p>Eine kreative Aufgabe von Mark Kern für Frau Braa</p>
+            <p>Eine Entdeckungsreise durch die tiefgründigen Themen des Lebens, Todes und der spirituellen Bedeutung des Daseins.</p>
+            <a href="#topics" class="btn pulse">Entdecke mehr</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Über diese Webseite</h2>
+            <div class="card-container">
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Unsere Mission</h3>
+                        <p>Diese Webseite widmet sich der Erforschung grundlegender Fragen der menschlichen Existenz. Wir bieten einen Raum für Reflexion und Dialog über Leben, Tod, Leid und die Bedeutung des Daseins aus verschiedenen religiösen und philosophischen Perspektiven.</p>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Unser Angebot</h3>
+                        <p>Wir sammeln Gedanken, Texte und Ressourcen aus verschiedenen spirituellen Traditionen und philosophischen Schulen. Unser Ziel ist es, unterschiedliche Perspektiven zu präsentieren und zum Nachdenken anzuregen.</p>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Für wen?</h3>
+                        <p>Diese Webseite richtet sich an alle, die sich mit den großen Fragen des Lebens auseinandersetzen möchten. Ob Sie einer bestimmten religiösen Tradition angehören oder einfach nur neugierig sind - hier finden Sie Anregungen für Ihre eigene spirituelle Reise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Unsere Themen</h2>
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="leben">Leben</button>
+                    <button class="tab-btn" data-tab="tod">Tod</button>
+                    <button class="tab-btn" data-tab="sterben">Sterben</button>
+                    <button class="tab-btn" data-tab="leid">Leid</button>
+                    <button class="tab-btn" data-tab="religion">Religion</button>
+                </div>
+                
+                <div id="leben" class="tab-content active">
+                    <h3>Die Bedeutung des Lebens</h3>
+                    <p>Das Leben ist ein Geschenk und eine Reise. In verschiedenen religiösen Traditionen wird das Leben als heilig angesehen, als eine Gelegenheit zur spirituellen Entwicklung und zum Wachstum der Seele.</p>
+                    <div class="card-container" style="margin-top: 30px;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Christliche Perspektive</h4>
+                                <p>Im Christentum wird das Leben als Gottes kostbare Gabe betrachtet. Es ist eine Zeit der Vorbereitung auf die Ewigkeit und eine Gelegenheit, Gottes Liebe zu erfahren und weiterzugeben.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Buddhistische Perspektive</h4>
+                                <p>Im Buddhismus wird das Leben als Teil eines endlosen Zyklus von Wiedergeburten gesehen. Das ultimative Ziel ist die Befreiung vom Leiden durch Erleuchtung und das Erreichen des Nirvana.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Humanistische Perspektive</h4>
+                                <p>In humanistischen Traditionen wird das Leben als einzigartige Gelegenheit betrachtet, Bedeutung und Erfüllung zu finden. Die Betonung liegt auf persönlichem Wachstum, Mitgefühl und dem Beitrag zum Wohlergehen der Gesellschaft.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tod" class="tab-content">
+                    <h3>Verstehen des Todes</h3>
+                    <p>Der Tod ist ein universelles Mysterium, das Menschen seit Anbeginn der Zeit beschäftigt. Verschiedene Kulturen und spirituelle Traditionen haben unterschiedliche Interpretationen und Rituale entwickelt, um mit dieser grundlegenden Realität umzugehen.</p>
+                    <div class="card-container" style="margin-top: 30px;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Leben nach dem Tod</h4>
+                                <p>Viele religiöse Traditionen glauben an eine Form des Weiterlebens nach dem Tod. Dies kann als Himmel, Wiedergeburt, Auferstehung oder als Vereinigung mit einer kosmischen Einheit verstanden werden.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Trauerrituale</h4>
+                                <p>Trauerrituale haben eine wichtige Funktion für die Hinterbliebenen. Sie helfen, den Verlust zu verarbeiten, dem Tod Bedeutung zu geben und die Gemeinschaft in Zeiten der Trauer zusammenzubringen.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Tod als Lehrer</h4>
+                                <p>In vielen Traditionen wird der Tod als wichtiger Lehrer betrachtet. Das Bewusstsein unserer Sterblichkeit kann uns helfen, das Leben intensiver zu leben und uns auf das zu konzentrieren, was wirklich wichtig ist.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="sterben" class="tab-content">
+                    <h3>Der Prozess des Sterbens</h3>
+                    <p>Das Sterben ist ein natürlicher Prozess, der sowohl physische als auch spirituelle Dimensionen hat. Verschiedene Traditionen bieten unterschiedliche Perspektiven und Praktiken, um diesen Übergang zu begleiten.</p>
+                    <div class="card-container" style="margin-top: 30px;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Palliative Pflege</h4>
+                                <p>Die moderne palliative Pflege versucht, den Sterbeprozess würdevoll und schmerzfrei zu gestalten. Sie berücksichtigt sowohl die physischen als auch die psychischen, sozialen und spirituellen Bedürfnisse der Sterbenden.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Spirituelle Begleitung</h4>
+                                <p>Viele Traditionen bieten spezielle Praktiken und Rituale für die Sterbenden und ihre Angehörigen. Diese können Gebete, Meditationen, Lesungen heiliger Texte oder besondere Segnungen umfassen.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Tod als Übergang</h4>
+                                <p>In vielen spirituellen Traditionen wird der Tod nicht als Ende, sondern als Übergang verstanden. Das Tibetische Totenbuch beispielsweise beschreibt den Sterbeprozess als eine Reise durch verschiedene Bewusstseinszustände.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="leid" class="tab-content">
+                    <h3>Die Natur des Leids</h3>
+                    <p>Leid ist ein universelles menschliches Phänomen. Verschiedene religiöse und philosophische Traditionen haben versucht, das Leid zu verstehen und Wege zu finden, damit umzugehen oder es zu überwinden.</p>
+                    <div class="card-container" style="margin-top: 30px;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Die Frage nach dem Warum</h4>
+                                <p>Die Theodizee-Frage - warum ein guter Gott Leid zulässt - ist eine zentrale Herausforderung für viele religiöse Traditionen. Es gibt verschiedene Antwortversuche, von der Idee der freien Wahl bis zu der Vorstellung, dass Leid einen tieferen Sinn haben kann.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Leid als Wachstumsmöglichkeit</h4>
+                                <p>In vielen Traditionen wird Leid als Möglichkeit zum spirituellen Wachstum verstanden. Durch schwierige Erfahrungen können wir Mitgefühl, Weisheit und innere Stärke entwickeln.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Wege der Überwindung</h4>
+                                <p>Verschiedene Traditionen bieten Wege an, um mit Leid umzugehen oder es zu überwinden. Im Buddhismus beispielsweise wird der Achtfache Pfad als Weg zur Befreiung vom Leiden gelehrt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="religion" class="tab-content">
+                    <h3>Religiöse Perspektiven</h3>
+                    <p>Religionen bieten Rahmenwerke, um die großen Fragen des Lebens zu verstehen und mit existenziellen Herausforderungen umzugehen. Sie bieten Rituale, Gemeinschaft und ethische Leitlinien.</p>
+                    <div class="card-container" style="margin-top: 30px;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Weltreligionen</h4>
+                                <p>Die großen Weltreligionen wie Christentum, Islam, Hinduismus, Buddhismus und Judentum haben alle ihre eigenen Perspektiven auf Leben, Tod und Leid. Trotz ihrer Unterschiede teilen sie oft grundlegende Werte wie Mitgefühl, Gerechtigkeit und die Heiligkeit des Lebens.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Interreligiöser Dialog</h4>
+                                <p>Der interreligiöse Dialog fördert das Verständnis und den Respekt zwischen verschiedenen religiösen Traditionen. Er kann helfen, gemeinsame Werte zu entdecken und gemeinsame Herausforderungen anzugehen.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <h4>Spiritualität ohne Religion</h4>
+                                <p>Viele Menschen beschreiben sich als "spirituell, aber nicht religiös". Sie suchen nach Sinn und Transzendenz außerhalb traditioneller religiöser Strukturen, oft durch Praktiken wie Meditation, Naturverbundenheit oder humanistisches Engagement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <div class="container">
+            <h2>Ressourcen</h2>
+            <div class="card-container">
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Bücher</h3>
+                        <p>Eine kuratierte Sammlung von Büchern über Spiritualität, Leben, Tod und Leid aus verschiedenen Traditionen und Perspektiven.</p>
+                        <ul style="list-style-position: inside; margin-top: 15px;">
+                            <li>Viktor E. Frankl: "...trotzdem Ja zum Leben sagen"</li>
+                            <li>Elisabeth Kübler-Ross: "Interviews mit Sterbenden"</li>
+                            <li>Thich Nhat Hanh: "Leben ohne Angst und Schmerz"</li>
+                            <li>C.S. Lewis: "Über den Schmerz"</li>
+                            <li>Sogyal Rinpoche: "Das Tibetische Buch vom Leben und vom Sterben"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Podcast-Empfehlungen</h3>
+                        <p>Podcasts, die sich mit den tiefgründigen Fragen des Lebens, des Todes und der Spiritualität auseinandersetzen.</p>
+                        <ul style="list-style-position: inside; margin-top: 15px;">
+                            <li>On Being mit Krista Tippett</li>
+                            <li>The Meaning of Life Podcast</li>
+                            <li>Philosophie des Lebens</li>
+                            <li>Spirituelles Wachstum</li>
+                            <li>Zwischen Leben und Tod</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+                    <div class="card-content">
+                        <h3>Organisationen</h3>
+                        <p>Organisationen, die Unterstützung und Ressourcen zu Themen wie Trauer, Sterbebegleitung und spirituelle Beratung anbieten.</p>
+                        <ul style="list-style-position: inside; margin-top: 15px;">
+                            <li>Deutsche Gesellschaft für Palliativmedizin</li>
+                            <li>Hospizverein Deutschland</li>
+                            <li>Trauerbegleitung e.V.</li>
+                            <li>Zentrum für spirituelle Begleitung</li>
+                            <li>Netzwerk Lebensende und Trauer</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes" class="testimonials">
+        <div class="container">
+            <h2>Inspirierende Zitate</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Viktor_Frankl.jpg/220px-Viktor_Frankl.jpg')"></div>
+                        <div class="testimonial-author">
+                            <h4>Viktor E. Frankl</h4>
+                            <p>Psychiater und Holocaust-Überlebender</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Wer ein Warum zu leben hat, erträgt fast jedes Wie."</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Dalailama1_20121014_4639.jpg/220px-Dalailama1_20121014_4639.jpg')"></div>
+                        <div class="testimonial-author">
+                            <h4>Dalai Lama</h4>
+                            <p>Spirituelles Oberhaupt des tibetischen Buddhismus</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Der Sinn unseres Lebens besteht darin, das Glück zu suchen. Die Grundlage des Glücks ist Mitgefühl."</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/Elisabeth_K%C3%BCbler-Ross.jpg/220px-Elisabeth_K%C3%BCbler-Ross.jpg')"></div>
+                        <div class="testimonial-author">
+                            <h4>Elisabeth Kübler-Ross</h4>
+                            <p>Psychiaterin und Pionierin der Sterbeforschung</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Die schönsten Menschen, die wir gekannt haben, sind jene, die Leid, Kampf, Verlust erfahren haben und ihren Weg aus der Tiefe gefunden haben."</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Bonhoeffer.jpg/220px-Bonhoeffer.jpg')"></div>
+                        <div class="testimonial-author">
+                            <h4>Dietrich Bonhoeffer</h4>
+                            <p>Theologe und Widerstandskämpfer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Es gibt erfülltes Leben trotz vieler unerfüllter Wünsche."</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Thich_Nhat_Hanh_12_%28cropped%29.jpg/220px-Thich_Nhat_Hanh_12_%28cropped%29.jpg')"></div>
+                        <div class="testimonial-author">
+                            <h4>Thich Nhat Hanh</h4>
+                            <p>Zen-Meister und Friedensaktivist</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Unser eigenes Leben muss unsere Botschaft sein."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author" style="background-color: #f0f0f0;">
+        <div class="container">
+            <h2>Über den Autor</h2>
+            <div class="author-container" style="display: flex; gap: 30px; align-items: center;">
+                <div class="author-image" style="flex: 0 0 200px; height: 200px; border-radius: 50%; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <img src="https://cdn.discordapp.com/attachments/1025005071903232033/1363926796013142240/image.jpg?ex=6807cf50&is=68067dd0&hm=685d3aeb80b312ca618d5c4df3ca4fa08590fe686d992c032b308b6f5b71d78b&" alt="Mark Kern" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="author-content" style="flex: 1;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Mark Kern</h3>
+                    <p>Diese Webseite wurde von mir, Mark Kern, als kreative Aufgabe für den Unterricht bei Frau Braa konzipiert und umgesetzt. Das Projekt ermöglichte mir, mich intensiv mit den Themen Leben, Tod, Leid und Religion auseinanderzusetzen und meine Erkenntnisse in Form dieser interaktiven Webseite zu präsentieren.</p>
+                    <p>Durch die Gestaltung dieser Seite konnte ich nicht nur meine technischen Fähigkeiten in HTML, CSS und JavaScript erweitern, sondern auch ein tieferes Verständnis für die behandelten philosophischen und spirituellen Themen entwickeln.</p>
+                    <p>Ich hoffe, dass diese Webseite zum Nachdenken anregt und verschiedene Perspektiven auf die großen Fragen des Lebens bietet.</p>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Nehmen Sie Kontakt auf</h3>
+                    <p>Haben Sie Fragen, Anregungen oder möchten Sie mehr über unsere Themen erfahren? Wir freuen uns, von Ihnen zu hören.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Adresse</h4>
+                            <p>Leharstraße 12, 49661 Cloppenburg</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>E-Mail</h4>
+                            <p>markkern@gmail.de</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>+49 30 123456789</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Schreiben Sie uns</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Betreff</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nachricht</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Nachricht senden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="author-note">
+            <p><small>Diese Sektion wurde von Mark Kern im Rahmen einer kreativen Aufgabe für Frau Braa gestaltet.</small></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Über uns</h3>
+                    <p>Wir sind eine Plattform, die sich der Erforschung der tiefgründigen Fragen des Lebens, des Todes und der spirituellen Bedeutung widmet.</p>
+                    <p>Unser Ziel ist es, verschiedene Perspektiven zu präsentieren und zum Nachdenken anzuregen.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Schnelllinks</h3>
+                    <p><a href="#home" style="color: white; text-decoration: none;">Startseite</a></p>
+                    <p><a href="#about" style="color: white; text-decoration: none;">Über uns</a></p>
+                    <p><a href="#topics" style="color: white; text-decoration: none;">Themen</a></p>
+                    <p><a href="#resources" style="color: white; text-decoration: none;">Ressourcen</a></p>
+                    <p><a href="#quotes" style="color: white; text-decoration: none;">Zitate</a></p>
+                    <p><a href="#author" style="color: white; text-decoration: none;">Über mich</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Abonnieren Sie unseren Newsletter, um regelmäßig Gedanken und Ressourcen zu erhalten.</p>
+                    <form style="margin-top: 15px;">
+                        <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" style="margin-bottom: 10px;">
+                        <button type="submit" class="btn" style="width: 100%;">Abonnieren</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lebensphilosophie | Eine kreative Aufgabe von Mark Kern für Frau Braa</p>
+                <p>Alle Inhalte wurden im Rahmen eines Schulprojekts erstellt.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Wasserzeichen -->
+    <div class="watermark">
+        Erstellt von Mark Kern für Frau Braa
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav ul li a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Fade-in animation for elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Testimonial slider functionality
+        const testimonialContainer = document.querySelector('.testimonial-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        testimonialContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - testimonialContainer.offsetLeft;
+            scrollLeft = testimonialContainer.scrollLeft;
+        });
+
+        testimonialContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        testimonialContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        testimonialContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - testimonialContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            testimonialContainer.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
